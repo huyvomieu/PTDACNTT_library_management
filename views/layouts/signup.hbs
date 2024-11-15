@@ -1,0 +1,16 @@
+{{{body}}}
+<script>
+    function showPw(e) {
+        var x = document.getElementById("showPass");
+        var icon = document.getElementById("icon");
+        if (x.type === "password") {
+            x.type = "text";
+            icon.classList.remove('ti-eye');
+            icon.classList.add('bx', 'bxs-lock-alt');
+        } else {
+            x.type = "password";
+            icon.classList.remove('bx', 'bxs-lock-alt');
+            icon.classList.add('ti-eye');
+        }
+    }
+</script>

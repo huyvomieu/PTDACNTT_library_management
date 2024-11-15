@@ -1,0 +1,38 @@
+<form action="/admin/product/{{product._id}}?_method=PATCH" method="post">
+    <div class="form-group">
+        <label for="">Mã sách</label>
+        <input type="text" placeholder="Mã sách" required class="form-control" name="code" value="{{product.code}}">
+    </div>
+    <div class="form-group">
+        <label for="">Tên sách</label>
+        <input type="text" placeholder="Tên sách" required class="form-control" name="title" value="{{product.title}}">
+    </div>
+    <div class=" form-group">
+        <label for="">Tác giả</label>
+        <input type="text" placeholder="Tác giả" required class="form-control" name="author" value="{{product.author}}">
+    </div>
+    <div class=" form-group">
+        <label for="">Số lượng sách</label>
+        <input type="number" value="{{product.quantity}}" min="0" max="100" required class="form-control"
+            name="quantity" style="width: 10%;">
+    </div>
+    <div class="form-group">
+        <label for="">Đơn giá</label>
+        <input type="text" placeholder="Đơn giá" required class="form-control" name="price" value="{{product.price}}">
+    </div>
+    <div class="form-group">
+        <label for="">Danh mục sách</label>
+        <input type="text" placeholder="Danh mục sách" required class="form-control" name="category"
+            value="{{product.category}}">
+    </div>
+    <div class="form-group">
+        <label for="">Mô tả sách</label>
+        <textarea name="description" id="" rows="6" cols="180">value="{{product.description}}"</textarea>
+
+    </div>
+    <div class="form-group">
+        <label for="">Link hình ảnh</label>
+        <input type="text" placeholder="Link hình ảnh" required class="form-control" name="img" value="{{product.img}}">
+    </div>
+    <button type="submit" class="btn btn-primary">Lưu lại</button>
+</form>

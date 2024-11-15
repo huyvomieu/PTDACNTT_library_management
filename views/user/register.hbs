@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/client/css/styleregister.css">
+    <link rel="stylesheet" href="/client/css/themify-icons/themify-icons.css">
+    <style>
+        .alert-danger {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+
+        .alert-success {
+            color: #155724;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+
+        .alert {
+            position: relative;
+            padding: .75rem 1.25rem;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: .25rem;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/user/register" method="post">
+        <div class="wrapper">
+            <h1>Đăng ký tài khoản</h1>
+            {{#if messages.danger}}
+            <div class="alert alert-danger" role="alert">
+                <span>{{messages.danger}}</span>
+            </div>
+            {{/if}}
+            {{#if messages.success}}
+            <div class="alert alert-success" role="alert">
+                <span>{{messages.success}}</span>
+            </div>
+            {{/if}}
+            <!-- Ô nhập -->
+            <div class="input-box">
+                <input type="text" placeholder="Họ và tên" name="fullname" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Mật khẩu" name="password" required id="showPass">
+                <i class='ti-eye' onclick="showPw()" style="cursor: pointer;" id="icon"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Xác nhận mật khẩu" name="confirmPassword" required>
+                <i class='bx bxs-lock-open'></i>
+            </div>
+            <div class="input-box">
+                <input type="email" placeholder="Địa chỉ email" name="email" required>
+                <i class='bx bx-envelope'></i>
+            </div>
+
+            <!-- Điều khoản và chính sách quyền riêng tư -->
+            <p>Những người dùng dịch vụ của chúng tôi có thể đã tải thông tin liên hệ của bạn lên trang. Bạn đồng ý với
+                điều
+                khoản của chúng tôi thì hay xác nhận đăng ký! <a href="#"> Tìm hiểu thêm.</a></p>
+            <!-- Nút đăng ký -->
+            <div class="register">
+                <button type="submit">Đăng ký</button>
+            </div>
+        </div>
+    </form>
+
+</body>
+
+</html>

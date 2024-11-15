@@ -1,0 +1,45 @@
+{{#block "styles"}}
+<link rel="stylesheet" href="/client/css/styleHomePage.css">
+{{/block}}
+<div class="bg-img">
+    <img src="/client/images/ancient-books-adorn-library-carefully-arranged-with-classics-rare-gems.jpg" alt="Ảnh sau"
+        class="bg-img">
+</div>
+
+<div class="main-content-sg">
+    <section>
+        <div class="homepage-suggest">
+            <div class="suggest-grid">
+                <div class="suggest-item">
+                    <img src="/client/images/minhhoa.png" alt="Minh họa 1">
+                    <p>Tài liệu mới</p>
+                    <a href="" class="btn">Xem thêm</a>
+                </div>
+                <div class="suggest-item">
+                    <img src="/client/images/minhhoa.png" alt="Minh họa 1">
+                    <p>Tài liệu mượn nhiều</p>
+                    <a href="" class="btn">Xem thêm</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="tt">
+    <h2 class="tieude">Tài liệu tiêu biểu</h2>
+</div>
+<div class="main-content">
+    <div class="content-grid">
+        {{#each products}}
+        <div class="content-item">
+            <img src="{{img}}" alt="Ảnh 1">
+            <p>{{title}}</p>
+            <a href="/product/{{slug}}" class="btn">Xem chi tiết</a>
+        </div>
+        {{/each }}
+    </div>
+</div>
+{{#block "scripts"}}
+<script>
+    console.log('Script cho trang chủ');
+</script>
+{{/block}}

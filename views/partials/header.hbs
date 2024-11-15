@@ -1,0 +1,85 @@
+<header>
+    <div class="home">
+        <div class="home-logo">
+            <img src="/client/images/Logo.png" alt="Ảnh logo" class="home-logo">
+        </div>
+        <div class="home-title">
+            <h1 class="title-dhcn">TRUNG TÂM THÔNG TIN THƯ VIỆN</h1>
+            <h2 class="title-dhcn-mini">ĐẠI HỌC CÔNG NGHIỆP HÀ NỘI</h2>
+        </div>
+        <div class="home-link">
+            <ul class="home-link-funcion">
+                {{#if user}}
+                <li title="Thông tin tài khoản">
+                    <a href="/user"> <img
+                            src="https://scontent.fhan12-1.fna.fbcdn.net/v/t39.30808-1/462944189_1303984334294883_3370856959138856334_n.jpg?stp=dst-jpg_s200x200&_nc_cat=111&ccb=1-7&_nc_sid=0ecb9b&_nc_eui2=AeEWkBozC8dp5F9IoM5A3fCglu7GlxmHnySW7saXGYefJM78SGEafiw-fNBQBQVHvRibAuLgiOMPdwfImd6mnQUK&_nc_ohc=6H4m8bWosfwQ7kNvgEfHsf9&_nc_zt=24&_nc_ht=scontent.fhan12-1.fna&_nc_gid=Ap2X2YhEPpbiBkkiCZT8JiV&oh=00_AYBKcSnoyWUPrsQUIRwhTkHASn4krtmRw066mpvyTOG9DA&oe=673BD171"
+                            alt="" width="40px" style="border-radius: 22px;"></a>
+                </li>
+                <li><a href="/user/logout"> Đăng xuất</a></li>
+                {{else}}
+                <li><a href="/user/register">Tạo tài khoản</a></li>
+                <li><a href="/user/login">Đăng nhập</a></li>
+                {{/if}}
+
+            </ul>
+        </div>
+    </div>
+    <div class="main-funcion">
+        <div class="bg-img">
+            <img src="/client/images/ancient-books-adorn-library-carefully-arranged-with-classics-rare-gems.jpg"
+                alt="Ảnh sau" class="bg-img">
+        </div>
+        <div class="menu">
+            <ul class="menu-lv1">
+                <li><a href="/">TRANG CHỦ</a></li>
+                <li><a href="/digitalLibrary">THƯ VIỆN SỐ</a></li>
+                <li><a href="/comment">THẢO LUẬN</a></li>
+                <li><a href="/category">DANH MỤC</a></li>
+                <li><a href="/openSource">NGUỒN TRUY CẬP MỞ</a></li>
+                <li><a href="/information">THÔNG TIN</a></li>
+            </ul>
+        </div>
+    </div>
+    <style>
+        .search {
+            width: 800px;
+            height: 60px;
+            position: relative;
+            margin-left: 400.6px;
+            margin-top: 140px;
+            z-index: 1;
+            /* Chiều rộng toàn bộ ô tìm kiếm */
+        }
+
+        .search-input {
+            width: 100%;
+            height: 35px;
+            padding: 20px 20px 15px 15px;
+            /* Tạo khoảng cách cho button nằm bên trong */
+            border: 1px solid black;
+            border-radius: 20px;
+            /* Bo tròn toàn bộ input */
+            box-sizing: border-box;
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 10px;
+            /* Canh nút bấm cách viền phải của input */
+            top: 35%;
+            transform: translateY(-50%);
+            /* Đặt nút bấm ở giữa theo chiều dọc */
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 17px;
+        }
+    </style>
+    <div class="search">
+        <input class="search-input" id="search-input" type="text" placeholder="Tìm kiếm tài liệu, văn bản, luận văn..."
+            name="input" required><button class="search-btn">
+            <span class="ti-search"></span>
+        </button>
+        <div id="results"></div>
+    </div>
+</header>

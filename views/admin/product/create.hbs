@@ -1,0 +1,60 @@
+<form action="/admin/product/create" method="post" onsubmit="return checkImage(event)">
+
+    <div class="form-group">
+        <label for="">Mã sách</label>
+        <input type="text" placeholder="Mã sách" required class="form-control" name="code">
+    </div>
+    <div class="form-group">
+        <label for="">Tên sách</label>
+        <input type="text" placeholder="Tên sách" required class="form-control" name="title">
+    </div>
+    <div class="form-group">
+        <label for="">Tác giả</label>
+        <input type="text" placeholder="Tác giả" required class="form-control" name="author">
+    </div>
+    <div class="form-group">
+        <label for="">Số lượng sách</label>
+        <input type="number" value="0" min="0" max="100" required class="form-control" name="quantity"
+            style="width: 10%;">
+    </div>
+    <div class="form-group">
+        <label for="">Đơn giá</label>
+        <input type="text" placeholder="Đơn giá" required class="form-control" name="price">
+    </div>
+    <div class="form-group">
+        <label for="">Danh mục sách</label>
+        <input type="text" placeholder="Danh mục sách" required class="form-control" name="category">
+    </div>
+    <div class="form-group">
+        <label for="">Mô tả sách</label>
+        <textarea name="description" id="" rows="6" cols="180"></textarea>
+
+    </div>
+    <div class="form-group">
+        <label for="">Link hình ảnh</label>
+        <input type="text" placeholder="Link hình ảnh" required class="form-control" name="img" id="imageUrl">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Tạo mới</button>
+</form>
+<script>
+    function checkImage(event) {
+
+        const url = document.getElementById("imageUrl").value;
+        const img = new Image();
+
+        // Sử dụng Promise để xử lý bất đồng bộ
+        return new Promise((resolve) => {
+            img.onload = function () {
+                resolve(true);  // Cho phép submit khi ảnh hợp lệ
+            };
+
+            img.onerror = function () {
+                document.querySelector('[alertImg]').classList.remove('d-none')
+                resolve(false);  // Ngăn submit khi ảnh không hợp lệ
+            };
+
+
+            img.src = url;
+        }
+</script>

@@ -1,0 +1,64 @@
+{{#block "styles"}}
+<link rel="stylesheet" href="/client/css/stylexemchitietsach.css">
+{{/block}}
+<!-- Content -->
+<div class="content">
+
+    <!-- Main Content Section -->
+    <div class="main-content">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h3 class="sidebar-title">Tài liệu các khoa</h3>
+            <ul>
+                <li><a href="#">Cơ khí chế tạo máy</a></li>
+                <li><a href="#">Công nghệ ô tô</a></li>
+                <li><a href="#">Công nghệ thông tin</a></li>
+                <li><a href="#">Kế toán kiểm toán</a></li>
+                <li><a href="#">Ngôn ngữ Anh</a></li>
+                <li><a href="#">Dệt may</a></li>
+                <li><a href="#">Dệt may</a></li>
+                <li><a href="#">Dệt may</a></li>
+                <li><a href="#">Dệt may</a></li>
+                <li><a href="#">Dệt may</a></li>
+                <li><a href="#">Dệt may</a></li>
+                <li><a href="#">Dệt may</a></li>
+                <li><a href="#">Điện</a></li>
+                <li><a href="#">Du lịch</a></li>
+            </ul>
+        </div>
+
+        <!-- Information Section -->
+        <div class="information">
+            <!-- Sub-information -->
+            <div class="sub-information">
+                <div class="book-image">
+                    <img src="{{product.img}}" alt="Ảnh sách">
+                </div>
+                <div class="book-details">
+                    <h3>Tên sách: {{product.title}}</h3>
+                    <p>Tác giả: {{product.author}}</p>
+                    <p>Khoa: {{product.category}}</p>
+                    <p>Số lượng đã cho mượn: {{product.borrow}}</p>
+                    <p>Số lượng còn trong kho: {{subtract product.quantity product.borrow}}</p>
+                    <p>Lượt đánh giá: 15</p>
+                    <button class="read-button">Đọc sách</button>
+                </div>
+            </div>
+            <!-- Mô tả sách -->
+            <div class="mota">
+                {{product.description}}
+            </div>
+            <!-- Related Books -->
+            <div class="related-books">
+                <div class="related-book">
+                    <img src="" alt=""></a>
+                    <p>Tác giả: Minh Tiến</p>
+                    <i class='bx bxs-donate-heart'></i>
+                    <p>Lượt thích: 302</p>
+                </div>
+
+                <!-- Add more divs for additional books -->
+            </div>
+        </div>
+    </div>
+</div>

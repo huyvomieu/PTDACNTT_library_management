@@ -1,0 +1,30 @@
+<div class="text-right mb-3">
+    <a href="/admin/product/create" class="btn btn-primary ">Thêm sách mới</a>
+</div>
+<table class="table" border-collapse="collapse">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Mã sách</th>
+            <th scope="col">Tên sách</th>
+            <th scope="col">Số lượng còn</th>
+            <th scope="col">Đơn giá</th>
+            <th scope="col">Hình ảnh</th>
+            <th scope="col">Hành động</th>
+        </tr>
+        </thread>
+    <tbody>
+        {{#each products}}
+        <tr>
+            <td>{{code}}</td>
+            <td><a href="/admin/product/{{_id}}/edit">{{title}}</a></td>
+            <td>{{quantity}}</td>
+            <td>{{price}}VND</td>
+            <td> <img src="{{img}}" alt="" width="30px"></td>
+            <td>
+                <a href="/admin/product/{{_id}}?_method=DELETE">Xóa</a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+
+</table>

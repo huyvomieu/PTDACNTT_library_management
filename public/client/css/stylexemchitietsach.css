@@ -1,0 +1,109 @@
+.content {
+    margin-top: 120px;
+    margin-left: 20px;
+}
+
+.main-content {
+    display: flex;
+    gap: 20px;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #f0f0f0;
+
+}
+
+.sidebar-title {
+    background-color: blue;
+    color: white;
+    padding: 5px;
+    margin: 0;
+    font-size: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    border: 1px solid black;
+    margin: 0;
+}
+
+.sidebar li {
+    border-bottom: 1px solid black;
+    margin: 5px 2;
+    background-color: white;
+}
+
+.sidebar li:hover {
+    font-size: 18px;
+}
+
+.sidebar a {
+    color: blue;
+    text-decoration: none;
+    display: block;
+    padding: 5px;
+}
+
+.information {
+    flex-grow: 1;
+    background-color: #f0f0f0;
+}
+
+.sub-information {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.book-image img {
+    width: 250px;
+    height: auto;
+}
+
+.book-details {
+    margin-left: 20px;
+}
+
+.read-button {
+    padding: 10px;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.mota {
+    background-color: rgb(155, 134, 134);
+    color: white;
+    margin-bottom: 40px;
+}
+
+.mota .tt-mota {
+    font-size: 15px;
+}
+
+.tieude-mota {
+    color: blue;
+    margin-bottom: -10px;
+    width: 150px;
+    font-size: 20px;
+}
+
+.related-books {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+
+}
+
+.related-book {
+    background-color: #dcdcdc;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.related-books img {
+    width: 200px;
+    height: 285px;
+}
