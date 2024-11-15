@@ -10,7 +10,8 @@ tagInput.addEventListener('input', (e) => {
 });
 
 async function fetchData(valueSearch) {
-    fetch(`/api/all?q=${valueSearch}`)
+    console.log(window.location)
+    fetch(`${window.location.origin}/product/api/all?q=${valueSearch}`)
         .then(
             response => response.json()
         )
