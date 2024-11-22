@@ -1,0 +1,358 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.btn {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+html,
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.home {
+    height: 88px;
+    width: 100%;
+    background-color: #FFF;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.home-logo {
+    width: 75px;
+    height: 75px;
+    flex-shrink: 0;
+}
+
+.home-title {
+    margin-left: 400px;
+}
+
+.title-dhcn {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 800;
+    font-family: 'Times New Roman', Times, serif;
+    color: blue;
+}
+
+.title-dhcn-mini {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 800;
+    font-family: 'Times New Roman', Times, serif;
+    color: red;
+}
+
+.home-link {
+    margin-left: auto;
+}
+
+.home-link-funcion {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.home-link a {
+    color: #1074C3;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    text-decoration-line: underline;
+}
+
+.bg-img {
+    /*  position: fixed; */
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    z-index: -1;
+    /* Đặt ảnh phía sau nội dung */
+}
+
+.bg-img img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    /* Cắt ảnh vừa vặn khung */
+    filter: blur(2px);
+    /* Độ mờ của ảnh */
+    opacity: 0.6;
+    /* Độ trong suốt */
+}
+
+.menu {
+    background-color: #1074C3;
+    position: relative;
+    margin-top: -350px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.menu-lv1 {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+.menu-lv1 li {
+    padding: 15px 30px;
+    text-align: center;
+}
+
+.menu-lv1>li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+}
+
+.menu-lv1>li:hover {
+    background-color: aqua;
+}
+
+.search-box {
+    z-index: 1;
+    position: relative;
+    width: 800px;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 455.6px;
+    margin-top: 140px;
+}
+
+.search-box-input {
+    width: 600px;
+    height: 44px;
+    border-radius: 15px;
+}
+
+.search-box-btn {
+    width: 100px;
+    height: 35px;
+    padding-top: 4px;
+    border-radius: 13px;
+    margin-top: 4.4px;
+    background-color: #1074C3;
+    cursor: pointer;
+    color: white;
+}
+
+.main-content-sg {
+    /* z-index: 1; */
+    position: relative;
+    width: 1000px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    margin-left: 290px;
+    background-color: white;
+    margin-top: 70px;
+    box-shadow: -10px -18px 20px -2px rgba(0, 0, 0, 0.10), 10px -18px 20px -2px rgba(0, 0, 0, 0.10);
+}
+
+section {
+    margin-top: 20px;
+    width: 90%;
+    margin: 20px auto;
+    margin-left: 72.5px;
+}
+
+.suggest-grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 15px;
+}
+
+.suggest-item {
+    background-color: #FFF;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.suggest-item img {
+    width: 400px;
+    height: auto;
+    max-height: 150px;
+    object-fit: cover;
+}
+
+.suggest-item p {
+    margin-top: 8px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.suggest-item a {
+    background-color: #1074C3;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.homepage-suggest {
+    display: flex;
+}
+
+.main-content {
+    display: flex;
+    margin-left: 156.8px;
+    padding-top: 50px;
+    z-index: 1;
+    position: relative;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 15px;
+}
+
+.content-item {
+    text-align: center;
+    padding: 10px;
+}
+
+.content-item p {
+    margin-top: 8px;
+    font-weight: bold;
+    font-size: 20;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.content-item a {
+    background-color: #1074C3;
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.tt {
+    margin-left: 700px;
+    margin-top: 5px;
+}
+
+.tieude {
+    color: blue;
+}
+
+.content-grid img:hover {
+    box-shadow: -10px -18px 20px -2px rgba(0, 0, 0, 0.10), 10px -18px 20px -2px rgba(0, 0, 0, 0.10);
+}
+
+.content-grid a:hover {
+    box-shadow: -10px -18px 20px -2px rgba(0, 0, 0, 0.10), 10px -18px 20px -2px rgba(0, 0, 0, 0.10);
+}
+
+.content-item p:hover {
+    color: red;
+}
+
+.main-content-sg,
+.main-content {
+    flex: 1;
+}
+
+.main-content-sg,
+.main-content {
+    flex: 1;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    background-color: #1074C3;
+    padding: 20px;
+    margin-top: auto;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.info,
+.map,
+.social,
+.copyright {
+    flex: 1;
+    padding: 10px;
+    min-width: 200px;
+}
+
+.info h3,
+.map h3,
+.social h3 {
+    font-size: 18px;
+    color: black;
+    margin-bottom: 10px;
+}
+
+
+body.dark-mode {
+    background-color: #121212;
+    color: #d3d3d3;
+}
+
+
+.dark-mode header,
+.dark-mode footer,
+.dark-mode .menu,
+.dark-mode .search-box-btn,
+.dark-mode .suggest-item a,
+.dark-mode .content-item a {
+    background-color: #333;
+    color: inherit;
+}
+
+
+.dark-mode .home-link a,
+.dark-mode .menu-lv1>li a {
+    color: #a0a0a0;
+    text-decoration: none;
+}
+
+.dark-mode .menu-lv1>li:hover,
+.dark-mode .home-link a:hover {
+    background-color: #555;
+    color: #e0e0e0;
+}
+
+/* Change "Tài liệu tiêu biểu" text color to white in dark mode */
+.dark-mode .tieude {
+    color: #ffffff;
+}
+
+.search-box-result {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    text-decoration: none;
+    position: relative;
+    z-index: 2;
+    color: #000;
+}

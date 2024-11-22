@@ -67,6 +67,20 @@ class UserController {
         res.clearCookie('token');
         res.redirect("back")
     }
+    // [GET] /user/
+    index(req, res, err) {
+        res.render("user/info")
+    }
+    // [PATCH] /user/update/:id
+    async update(req, res, err) {
+        let id = req.params.id;
+        let fullname = req.body.fullname;
+        let email = req.body.email;
+        await User.findOneAndUpdate({ _id: id }, { $set: { fullname: fullname, email: email } })
+        req.flash("success", "Cập nhật thông tin thành công!")
+        res.redirect("back")
+    }
+
 
 
 }

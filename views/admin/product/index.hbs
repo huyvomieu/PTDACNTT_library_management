@@ -17,11 +17,12 @@
         <tr>
             <td>{{code}}</td>
             <td><a href="/admin/product/{{_id}}/edit">{{title}}</a></td>
-            <td>{{quantity}}</td>
+            <td>{{subtract quantity borrow}}</td>
             <td>{{price}}VND</td>
             <td> <img src="{{img}}" alt="" width="30px"></td>
             <td>
-                <a href="/admin/product/{{_id}}?_method=DELETE">Xóa</a>
+                <a href="/admin/product/{{_id}}" class="btn btn-warning">Sửa</a>
+                <a href="/admin/product/delete/{{_id}}?_method=DELETE" class="btn btn-danger">Xóa</a>
             </td>
         </tr>
         {{/each}}

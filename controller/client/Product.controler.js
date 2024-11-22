@@ -1,4 +1,5 @@
 const Product = require("../../model/product.model");
+const User = require("../../model/user.model");
 
 
 const { multipleMongooseToObject, mongooseToObject } = require("../../util/mongoose");
@@ -29,6 +30,51 @@ class ProductController {
             }
         );
     }
+    // [POST] /product/:productId/:userId
+    async borrow(req, res, err) {
+        let proId = req.params.productId;
+        let userId = req.params.userId;
+        let user = await User.findOne({ _id: userId });
+        let existProductInUser = user.products.find(item => item.productId == proId)
+        if (!existProductInUser) {
+            let objProduct = {
+                productId: proId,
+                quantity: 1
+            }
+            await User.findOneAndUpdate(
+                {
+                    _id: userId
+                },
+                {
+                    $push:
+                    {
+                        products: objProduct
+                    }
+                }
+            )
+        }
+        else {
+            let quantityNew = existProductInUser.quantity + 1;
+            await User.findOneAndUpdate(
+                {
+                    _id: userId,
+                    "products.productId": proId
+                },
+                {
+                    $set:
+                    {
+                        "products.$.quantity": quantityNew
+                    }
+                }
+            )
+        }
+        let Productborrow = await Product.findOne({ _id: proId });
+        let borrowPro = Productborrow.borrow + 1;
+        await Product.findOneAndUpdate({ _id: proId }, { $set: { borrow: borrowPro } })
+        req.flash("success", "Đặt mượn sách thành công!")
+        res.redirect("back")
+    }
+
 
 
 }

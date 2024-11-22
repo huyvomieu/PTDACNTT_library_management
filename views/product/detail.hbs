@@ -41,7 +41,7 @@
                     <p>Số lượng đã cho mượn: {{product.borrow}}</p>
                     <p>Số lượng còn trong kho: {{subtract product.quantity product.borrow}}</p>
                     <p>Lượt đánh giá: 15</p>
-                    <button class="read-button">Đọc sách</button>
+                    <button class="read-button" id="btn-muonsach" data-id="{{product._id}}">Mượn sách</button>
                 </div>
             </div>
             <!-- Mô tả sách -->
@@ -56,9 +56,28 @@
                     <i class='bx bxs-donate-heart'></i>
                     <p>Lượt thích: 302</p>
                 </div>
-
                 <!-- Add more divs for additional books -->
             </div>
         </div>
     </div>
 </div>
+<form id="formSubmit" action="/product/borrow/{{product._id}}/{{user._id}}" method="post"></form>
+{{#if messages.success}}
+<input type="text" value="{{messages.success}}" style="display: none;" id="success">
+{{/if}}
+<script>
+    var btnMuon = document.getElementById("btn-muonsach");
+    if (btnMuon) {
+        btnMuon.addEventListener("click", e => {
+            var formSubmit = document.getElementById("formSubmit");
+            formSubmit.submit()
+        })
+    }
+    var checkSuccess = document.querySelector("input[id='success']");
+    if (checkSuccess) {
+        setTimeout(() => {
+            alert(checkSuccess.value)
+        }, 1000)
+
+    }
+</script>

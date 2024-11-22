@@ -1,4 +1,23 @@
 <header>
+    <style>
+        .user {
+            position: absolute;
+            left: 0;
+            top: 30px;
+            width: 220px;
+            list-style-type: none;
+            z-index: 99;
+            background-color: #f0f0f0;
+        }
+
+        .user li {
+            padding: 4px;
+        }
+
+        .user li a {
+            text-decoration: none;
+        }
+    </style>
     <div class="home">
         <div class="home-logo">
             <img src="/client/images/Logo.png" alt="Ảnh logo" class="home-logo">
@@ -10,15 +29,21 @@
         <div class="home-link">
             <ul class="home-link-funcion">
                 {{#if user}}
-                <li title="Thông tin tài khoản">
-                    <a href="/user"> <img
-                            src="https://scontent.fhan12-1.fna.fbcdn.net/v/t39.30808-1/462944189_1303984334294883_3370856959138856334_n.jpg?stp=dst-jpg_s200x200&_nc_cat=111&ccb=1-7&_nc_sid=0ecb9b&_nc_eui2=AeEWkBozC8dp5F9IoM5A3fCglu7GlxmHnySW7saXGYefJM78SGEafiw-fNBQBQVHvRibAuLgiOMPdwfImd6mnQUK&_nc_ohc=6H4m8bWosfwQ7kNvgEfHsf9&_nc_zt=24&_nc_ht=scontent.fhan12-1.fna&_nc_gid=Ap2X2YhEPpbiBkkiCZT8JiV&oh=00_AYBKcSnoyWUPrsQUIRwhTkHASn4krtmRw066mpvyTOG9DA&oe=673BD171"
-                            alt="" width="40px" style="border-radius: 22px;"></a>
+                <li title="Thông tin tài khoản" style="position: relative;">
+                    <img id="userImg"
+                        src="https://scontent.fhan12-1.fna.fbcdn.net/v/t39.30808-1/462944189_1303984334294883_3370856959138856334_n.jpg?stp=dst-jpg_s200x200&_nc_cat=111&ccb=1-7&_nc_sid=0ecb9b&_nc_eui2=AeEWkBozC8dp5F9IoM5A3fCglu7GlxmHnySW7saXGYefJM78SGEafiw-fNBQBQVHvRibAuLgiOMPdwfImd6mnQUK&_nc_ohc=6H4m8bWosfwQ7kNvgEfHsf9&_nc_zt=24&_nc_ht=scontent.fhan12-1.fna&_nc_gid=Ap2X2YhEPpbiBkkiCZT8JiV&oh=00_AYBKcSnoyWUPrsQUIRwhTkHASn4krtmRw066mpvyTOG9DA&oe=673BD171"
+                        alt="" width="40px" style="border-radius: 22px; margin-right: 50px;">
+                    <ul class="user" style="display: none;">
+                        <li><a href="/user">Thông tin tài khoản</a></li>
+                        <li><a href="/user/logout"> Đăng xuất</a></li>
+                    </ul>
+
                 </li>
-                <li><a href="/user/logout"> Đăng xuất</a></li>
+                <button class="theme-toggle"><span class="ti-light-bulb"></button>
                 {{else}}
                 <li><a href="/user/register">Tạo tài khoản</a></li>
                 <li><a href="/user/login">Đăng nhập</a></li>
+                <button class="theme-toggle"><span class="ti-light-bulb"></span></button>
                 {{/if}}
 
             </ul>

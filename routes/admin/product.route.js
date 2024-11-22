@@ -9,9 +9,9 @@ const productValidate = require("../../validate/product.validate")
 Router.get("/", ProductController.index)
 Router.get("/create", ProductController.create)
 Router.post("/create", productValidate, ProductController.createPost)
-Router.get("/:id/edit", ProductController.edit)
+Router.get("/:id", ProductController.edit)
 Router.patch("/:id", productValidate, ProductController.editPatch)
-Router.delete("/:id", ProductController.delete)
+Router.get("/delete/:id", ProductController.delete)
 
 module.exports = Router;
 

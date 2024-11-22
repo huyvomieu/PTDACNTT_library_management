@@ -10,7 +10,11 @@ const User = new Schema({
     token: {
         type: String,
         default: randomToken(20)
-    }
+    },
+    products: {
+        type: Array,
+        default: []
+    },
 },
     {
         timestamp: true

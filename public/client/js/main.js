@@ -10,7 +10,6 @@ tagInput.addEventListener('input', (e) => {
 });
 
 async function fetchData(valueSearch) {
-    console.log(window.location)
     fetch(`${window.location.origin}/product/api/all?q=${valueSearch}`)
         .then(
             response => response.json()
@@ -38,3 +37,19 @@ async function fetchData(valueSearch) {
         });
 }
 
+
+// user 
+
+var user = document.querySelector(".user")
+var userImg = document.getElementById("userImg")
+if (userImg) {
+    userImg.addEventListener("click", e => {
+        console.log(user.style)
+        if (user.style.display == "none") {
+            user.style.display = "inline-block"
+        } else {
+            user.style.display = "none"
+
+        }
+    })
+}
