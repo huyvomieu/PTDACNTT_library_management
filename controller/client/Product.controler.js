@@ -35,11 +35,18 @@ class ProductController {
         let proId = req.params.productId;
         let userId = req.params.userId;
         let user = await User.findOne({ _id: userId });
+        if (!user) {
+            res.redirect("/user/login")
+            return;
+        }
         let existProductInUser = user.products.find(item => item.productId == proId)
         if (!existProductInUser) {
             let objProduct = {
                 productId: proId,
-                quantity: 1
+                quantity: 1,
+                BorrowedAt: new Date(),
+                ExpireAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
+
             }
             await User.findOneAndUpdate(
                 {

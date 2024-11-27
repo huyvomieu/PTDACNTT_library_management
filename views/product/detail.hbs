@@ -61,7 +61,8 @@
         </div>
     </div>
 </div>
-<form id="formSubmit" action="/product/borrow/{{product._id}}/{{user._id}}" method="post"></form>
+<form id="formSubmit" action="/product/borrow/{{product._id}}" method="post"></form>
+<input type="hidden" value="{{user._id}}" id="userValue">
 {{#if messages.success}}
 <input type="text" value="{{messages.success}}" style="display: none;" id="success">
 {{/if}}
@@ -69,8 +70,18 @@
     var btnMuon = document.getElementById("btn-muonsach");
     if (btnMuon) {
         btnMuon.addEventListener("click", e => {
-            var formSubmit = document.getElementById("formSubmit");
-            formSubmit.submit()
+            e.preventDefault();
+            var userId = document.getElementById("userValue").value;
+            if (!userId) {
+                window.location.href = "/user/login"
+                return;
+            }
+            else {
+                var formSubmit = document.getElementById("formSubmit");
+                formSubmit.action += `/${userId}`
+                formSubmit.submit()
+            }
+
         })
     }
     var checkSuccess = document.querySelector("input[id='success']");

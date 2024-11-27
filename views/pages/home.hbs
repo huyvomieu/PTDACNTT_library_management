@@ -47,5 +47,27 @@
     themeToggleButton.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
     });
+
+    // notification 
+
+    // Hàm để tạo cookie
+    function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+        document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/`;
+    }
+    // Hàm lấy cookie từ trình duyệt
+    function getCookie(name) {
+        const cookies = document.cookie.split('; ');
+        for (let i = 0; i < cookies.length; i++) {
+            const [key, value] = cookies[i].split('=');
+            if (key === name) return decodeURIComponent(value);
+        }
+        return null;
+    }
+
+    // Xử lý sự kiện khi nhấn nút
+    const notification = getCookie('notification').split("-");
+    confirm(`${notification[0]}\n ${notification[1]}`)
 </script>
 {{/block}}

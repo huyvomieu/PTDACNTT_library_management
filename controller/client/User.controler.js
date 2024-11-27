@@ -1,5 +1,10 @@
 
 const User = require("../../model/user.model")
+const Product = require("../../model/product.model")
+
+const { multipleMongooseToObject, mongooseToObject } = require("../../util/mongoose");
+
+const formartData = require("../../helpers/formatData")
 
 const md5 = require("md5")
 class UserController {
@@ -16,7 +21,6 @@ class UserController {
     }
     // [POST] /user/register
     async registerPost(req, res, err) {
-        console.log(req.body)
         const email = req.body.email
         const existEmail = await User.findOne({ email: email })
         if (existEmail) {
@@ -71,6 +75,10 @@ class UserController {
     index(req, res, err) {
         res.render("user/info")
     }
+    // [GET] /user/change-password
+    changePass(req, res, err) {
+        res.render("user/changePassword")
+    }
     // [PATCH] /user/update/:id
     async update(req, res, err) {
         let id = req.params.id;
@@ -79,6 +87,25 @@ class UserController {
         await User.findOneAndUpdate({ _id: id }, { $set: { fullname: fullname, email: email } })
         req.flash("success", "Cập nhật thông tin thành công!")
         res.redirect("back")
+    }
+    // [GET] /user/borrowed
+    async borrowed(req, res, err) {
+        var productsArrayId = res.locals.user.products;
+        var productsInfo = []
+        for (const product of productsArrayId) {
+            var productInfo = await Product.findOne({ _id: product.productId });
+            productInfo = productInfo.toObject()
+
+            product.BorrowedAt = formartData.formatDate(product.BorrowedAt)
+            product.ExpireAt = formartData.formatDate(product.ExpireAt)
+            productInfo.productAt = product
+            productsInfo.push(productInfo)
+        }
+
+        res.render("user/borrowed", {
+            productsInfo
+        })
+
     }
 
 

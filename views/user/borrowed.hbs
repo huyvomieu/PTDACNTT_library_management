@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Sách Đã Mượn</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .borrowed-books h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            margin-top: 100px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="borrowed-books">
+        <h2>Danh Sách Sách Đã Mượn</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tên Sách</th>
+                    <th>Tác Giả</th>
+                    <th>Ngày Mượn</th>
+                    <th>Ngày Hết Hạn</th>
+                    <th>Gia Hạn</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each productsInfo}}
+                <tr>
+                    <td>{{title}}</td>
+                    <td>{{author}}</td>
+                    {{#productAt}}
+                    <td>{{BorrowedAt}}</td>
+                    <td>{{ExpireAt}}</td>
+                    {{/productAt}}
+                    <td><button>Gia Hạn</button></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
