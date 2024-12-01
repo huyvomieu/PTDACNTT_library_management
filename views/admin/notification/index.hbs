@@ -6,22 +6,39 @@
         <tr>
             <th scope="col">Tiêu đề</th>
             <th scope="col">Nội dung</th>
+            <th scope="col">Hành động</th>
         </tr>
         </thread>
     <tbody>
-        {{#each products}}
+        {{#each notification}}
         <tr>
-            <td>{{code}}</td>
-            <td><a href="/admin/product/{{_id}}/edit">{{title}}</a></td>
-            <td>{{subtract quantity borrow}}</td>
-            <td>{{price}}VND</td>
-            <td> <img src="{{img}}" alt="" width="30px"></td>
+            <td>{{title}}</td>
+            <td>{{description}}</td>
             <td>
-                <a href="/admin/product/{{_id}}" class="btn btn-warning">Sửa</a>
-                <a href="/admin/product/delete/{{_id}}?_method=DELETE" class="btn btn-danger">Xóa</a>
+                <a href="/admin/notification/edit{{_id}}" class="btn btn-warning">Sửa</a>
+                <a href="/admin/notification/delete/{{_id}}" class="btn btn-danger">Xóa</a>
             </td>
         </tr>
         {{/each}}
     </tbody>
-
 </table>
+<!-- Modal -->
+<div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Xác nhận xóa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Bạn có chắc chắn xóa thông báo này? Thao tác không thể quay trở lại!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-primary">OK</button>
+            </div>
+        </div>
+    </div>
+</div>

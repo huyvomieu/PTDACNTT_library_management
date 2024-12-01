@@ -8,7 +8,7 @@ class PageController {
     // [GET] /
     async index(req, res, err) {
         const products = await Product.find({});
-        const notification = await Notification.findOne({}).limit(1).sort("desc");
+        const notification = await Notification.findOne({}).sort({ createdAt: -1 });
         if (notification) {
             res.cookie("notification", notification.title + "-" + notification.description);
         }

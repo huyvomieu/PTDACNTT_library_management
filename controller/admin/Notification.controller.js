@@ -1,14 +1,18 @@
 const Notification = require("../../model/notification.model")
 
+const mongooseToObject = require("../../util/mongoose")
 
 class NotificationController {
     // [GET] /admin/notification
-    index(req, res, err) {
+    async index(req, res, err) {
+        const records = await Notification.find({});
+
         res.render('admin/notification/index',
             {
                 titleAction: "notification",
                 title: "Thông báo",
-                layout: "admin"
+                layout: "admin",
+                notification: mongooseToObject.multipleMongooseToObject(records)
             }
         );
     }
@@ -28,6 +32,17 @@ class NotificationController {
         await notification.save();
         req.flash("success", "Đăng thông báo thành công");
         res.redirect("back")
+    }
+    // [DELETE] /admin/notification/delete/:id
+    async delete(req, res, err) {
+        try {
+            await Notification.findOneAndDelete({ _id: req.params.id })
+            req.flash("success", "Xóa thông báo thành công");
+            res.redirect("back")
+        } catch (err) {
+            console.log("lỗi...");
+        }
+
     }
 
 
